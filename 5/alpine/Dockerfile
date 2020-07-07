@@ -15,10 +15,8 @@ ENV ALINODE_VERSION=5.13.0 \
     HOME=/root \
     APP_DIR=/app
 
-
 # 从官网镜像中复制 alinode 包含了 agenthub 无需安装
 COPY --from=registry.cn-hangzhou.aliyuncs.com/aliyun-node/alinode:5.13.0-alpine /usr/local /usr/local
-
 
 # 添加账号，安装 依赖，运维工具，yarn pm2
 RUN addgroup -g 1000 node \
@@ -41,7 +39,6 @@ ENTRYPOINT ["/start-agenthub.sh"]
 
 # 工作目录
 WORKDIR /app
-
 
 # 默认启动命令
 CMD ["pm2-runtime", "start", "ecosystem.config.js"]
