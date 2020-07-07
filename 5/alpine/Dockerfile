@@ -41,4 +41,5 @@ ENTRYPOINT ["/start-agenthub.sh"]
 WORKDIR /app
 
 # 默认启动命令
+#pm2启动
 CMD ["pm2-runtime", "start", "ecosystem.config.js"]
