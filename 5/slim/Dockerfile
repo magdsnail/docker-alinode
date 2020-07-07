@@ -4,7 +4,7 @@ FROM debian:jessie-slim
 RUN apk add tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo "Asia/Shanghai" > /etc/timezone \
     && apk del tzdata
-    
+
 # 环境变量
 ENV ALINODE_VERSION=5.13.0 \
     NODE_VERSION=12.13.0 \
@@ -15,6 +15,7 @@ ENV ALINODE_VERSION=5.13.0 \
     NODE_ENV=production \
     HOME=/root \
     APP_DIR=/app
+
 
 # 添加用户和组
 RUN groupadd --gid 1000 node \
@@ -47,7 +48,8 @@ COPY start-agenthub.sh /
 ENTRYPOINT ["/start-agenthub.sh"]
 
 # 工作目录
-WORKDIR /app
+WORKDIR /work
+
 
 # 默认启动命令
 CMD ["pm2-runtime", "start", "ecosystem.config.js"]
