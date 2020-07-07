@@ -4,6 +4,7 @@ Node.js 性能平台 - Node.js Performance Platform
 
 > 集成 alinode + yarn + pm2 + agenthub  
 > 自动启动 agenthub 服务，让你可以像 pm2 镜像一样方便使用。  
+> 增加时间为上海时间
 
 [GitHub](https://github.com/toomeefed/docker-alinode)
 |
