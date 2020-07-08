@@ -13,6 +13,7 @@ ENV ALINODE_VERSION=5.13.0 \
     ALINODE_CONFIG=alinode.config.json \
     NODE_ENV=production \
     HOME=/root \
+    # APPSH_PATH=ecosystem.config.js \
     APP_DIR=/app
 
 # 从官网镜像中复制 alinode 包含了 agenthub 无需安装
@@ -43,3 +44,7 @@ WORKDIR /app
 # 默认启动命令
 #pm2启动
 CMD ["pm2-runtime", "start", "ecosystem.config.js"]
+
+#CMD ["pm2-runtime", "start", "${APPSH_PATH}"]
+
+#可以传入环境变量的形式 来改变启动文件的路径、名称
